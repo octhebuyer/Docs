@@ -1,0 +1,31 @@
+<!-- pagina.html -->
+<div id="menu-lateral">
+    <!-- Links internos serão adicionados aqui -->
+</div>
+<div id="conteudo">
+    # h1
+</div>
+
+<script>
+// Função para gerar o menu lateral com links internos
+function generateSidebar() {
+    var sidebar = document.getElementById('menu-lateral');
+    var content = document.getElementById('conteudo');
+    var headings = content.querySelectorAll('h2, h3, h4'); // Você pode adicionar mais níveis de cabeçalho se desejar
+
+    var sidebarContent = '<ul>';
+    headings.forEach(function(heading) {
+        var id = heading.id;
+        var text = heading.textContent;
+        sidebarContent += '<li><a href="#' + id + '">' + text + '</a></li>';
+    });
+    sidebarContent += '</ul>';
+
+    sidebar.innerHTML = sidebarContent;
+}
+
+// Chamada para gerar o menu lateral quando a página é carregada
+document.addEventListener('DOMContentLoaded', function() {
+    generateSidebar();
+});
+</script>
